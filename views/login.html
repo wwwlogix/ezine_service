@@ -1,0 +1,20 @@
+<ion-view>
+  <ion-content class="top20">
+    <form ng-submit="doLogin()">
+      <div class="list">
+        <label class="item item-input item-stacked-label">
+          <span class="input-label">Username</span>
+          <input type="text" ng-model="loginData.username" placeholder="username">
+        </label>
+        <label class="item item-input item-stacked-label">
+          <span class="input-label">Password</span>
+          <input type="password" ng-model="loginData.password" placeholder="password">
+        </label>
+        <div class="error tcenter" ng-if="error">{{error}}</div>
+        <label class="item">
+          <button class="button button-block button-balanced button-custom" type="submit">Log in</button>
+        </label>
+      </div>
+    </form>
+  </ion-content>
+</ion-view>

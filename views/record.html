@@ -1,0 +1,41 @@
+<ion-view view-cache="false">
+  <ion-header-bar>
+    <h1 class="title">{{$root.$storage.user.companyname}}</h1>
+  </ion-header-bar>
+  <ion-content>
+  <br>
+  <p class="fbold tcenter">{{title}}</p>
+  <p class="fbold tcenter">{{stitle}}</p>
+    <div class="row row-top">
+      <div class="col">
+        <a href="" class="button button-icon button-custom button-round" ng-click="startRecord()" ng-class="{'button-gray':ctime<minrec, 'button-red':ctime>=minrec}" ng-disabled="!spoken">
+          <i class="icon my-icon" ng-class="{'ion-ios-mic-off':ctime>0, 'ion-ios-mic':ctime==0}"></i><span ng-if="ctime==0">Start</span><span ng-if="ctime>0">Stop</span>
+        </a>
+        <br>
+        <span ng-if="ctime>0">{{ctime}}</span>
+        <p ng-if="$root.$storage.platform=='ios' && ctime>0">
+        <a href="" class="button button-icon button-custom button-small" ng-click="doPause()">
+          <i class="icon" ng-class="{'ion-play':data.ms=='paused', 'ion-pause':data.ms=='recording'}"></i>
+        </a></p>
+      </div>
+    </div>
+    <div class="bottom20">
+      <button class="button button-balanced button-block" ng-if="started.indexOf('a')>-1" ng-click="startRecord()">
+        Start Over AGAIN
+      </button>
+      <button class="button button-balanced button-block" ng-if="started.indexOf('a')>-1" ng-click="nextStep()">
+        DONE - NEXT STEP
+      </button>
+      <button class="button button-balanced button-custom button-block" ng-click="exit()">
+        Exit Session
+      </button>
+    </div>
+    <div class="padding10">
+    <hr>
+      <p class="fbold">{{$root.$storage.sitem.article_month}}'s Cordinated Article</p>
+      <p><span class="fbold">Topic:</span> {{$root.$storage.sitem.article_cat}}</p>
+      <p><span class="fbold">Title:</span> {{$root.$storage.sitem.article_title}}</p>
+      <p><span class="fbold">Author:</span> {{$root.$storage.sitem.article_publishername}}</p>
+    </div>
+  </ion-content>
+</ion-view>

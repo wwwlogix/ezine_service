@@ -1,0 +1,38 @@
+<ion-view view-cache="false">
+  <ion-header-bar>
+    <h1 class="title"><div ng-if="title==''">{{$root.$storage.user.companyname}}</div><div ng-if="title!=''">{{title}}</div></h1>
+  </ion-header-bar>
+  <ion-content>
+  <br>
+    <div class="row row-top">
+      <div class="col">
+        <a href="" class="button button-icon button-custom button-round" ng-click="goRec(1)">
+          <i class="icon my-icon" ng-class="{'ion-ios-mic-off':ctime>0, 'ion-ios-mic':ctime==0}"></i><span>Start Recorded Content</span>
+        </a>
+        <br>
+        <span ng-if="ctime>0">{{ctime}}</span>
+      </div>
+    </div>
+    <div class="bottom20">
+      <button class="button button-block" ng-class="{'button-energized':!data.exist || data.exist.owners_message=='','button-balanced':data.exist && data.exist.owners_message !==''}" ng-click="goRec(1)">
+        Owner's Message
+      </button>
+      <button class="button button-block" ng-class="{'button-energized':!data.exist || data.exist.ne1=='','button-balanced':data.exist && data.exist.ne1!=''}" ng-click="goRec(2)">
+        NEWS and EVENTS
+      </button>
+      <button class="button button-block" ng-class="{'button-energized':!data.exist || data.exist.custom_article=='','button-balanced':data.exist && data.exist.custom_article!=''}" ng-click="goRec(6)">
+        Customized Article
+      </button>
+      <button class="button button-balanced button-custom button-block" ng-click="exit()">
+        Exit Session
+      </button>
+    </div>
+    <div class="padding10">
+    <hr>
+      <p class="fbold">{{$root.$storage.sitem.article_month}}'s Cordinated Article</p>
+      <p><span class="fbold">Topic:</span> {{$root.$storage.sitem.article_cat}}</p>
+      <p><span class="fbold">Title:</span> {{$root.$storage.sitem.article_title}}</p>
+      <p><span class="fbold">Author:</span> {{$root.$storage.sitem.article_publishername}}</p>
+    </div>
+  </ion-content>
+</ion-view>

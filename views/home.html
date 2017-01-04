@@ -1,0 +1,32 @@
+<ion-view view-cache="false">
+  <ion-header-bar>
+    <!--<div class="buttons">
+      <button class="button button-light icon ion-power" ng-click="play()"></button>
+    </div>-->
+    <h1 class="title">{{$root.$storage.user.companyname}}</h1>
+    <div class="buttons">
+      <button class="button button-light icon ion-android-exit" ng-click="logout()"></button>
+      <button class="button button-light icon ion-power" ng-click="exitApp()"></button>
+    </div>
+  </ion-header-bar>
+  <ion-content scroll="false">
+
+    <!--<div class="swiper-container">
+      <div class="swiper-wrapper">-->
+          <ion-slides options="options" slider="data.slider">
+                <ion-slide-page class="swiper-slide" ng-repeat="item in articles" ng-if="$index % 3 == 0">
+                  <button class="button button-balanced button-custom button-block paddingx" ng-click="goRecord(articles[$index])">
+                    {{articles[$index].article_month}} {{articles[$index].article_year}}
+                  </button>
+                  <button class="button button-balanced button-custom button-block paddingx" ng-if="articles.length > ($index + 1)" ng-click="goRecord(articles[$index+1])">
+                    {{articles[$index+1].article_month}} {{articles[$index+1].article_year}}
+                  </button>
+                  <button class="button button-balanced button-custom button-block paddingx" ng-if="articles.length > ($index + 2)" ng-click="goRecord(articles[$index+2])">
+                    {{articles[$index+2].article_month}} {{articles[$index+2].article_year}}
+                  </button>      
+                </ion-slide-page>
+      </ion-slides>
+    <!--  </div>
+    </div>-->
+  </ion-content>
+</ion-view>
